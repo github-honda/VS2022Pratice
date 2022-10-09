@@ -32,9 +32,5 @@
 取消 EntityFramework Code first 的好處可參考(這篇說明, https://svc.011.idv.tw/CodeHelper/cs/ASPNET/identity/WebAuthSQL/doc/Readme-WebAuthSQL.html)
 另外可參考之前 VS2015, VS2019 改過的紀錄: https://svc.011.idv.tw/CodeHelper/cs/vs2019/vs2019Practice/WebIdentity/doc/Readme-WebIdentitySqlServer.html
 
-
-
-2. Remove reference Microsoft.AspNet.Identity.EntityFramework
-
 另外可參考之前 VS2015, VS2019 改過的紀錄: https://svc.011.idv.tw/CodeHelper/cs/vs2019/vs2019Practice/WebIdentity/doc/Readme-WebIdentitySqlServer.html
 □,○,△,◇,
