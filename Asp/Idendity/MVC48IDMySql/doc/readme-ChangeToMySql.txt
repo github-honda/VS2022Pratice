@@ -33,4 +33,10 @@
 另外可參考之前 VS2015, VS2019 改過的紀錄: https://svc.011.idv.tw/CodeHelper/cs/vs2019/vs2019Practice/WebIdentity/doc/Readme-WebIdentitySqlServer.html
 
 另外可參考之前 VS2015, VS2019 改過的紀錄: https://svc.011.idv.tw/CodeHelper/cs/vs2019/vs2019Practice/WebIdentity/doc/Readme-WebIdentitySqlServer.html
+
+□ 可進入資料庫中, 刪除 AspNetUsers.id 資料, 就可以重新 Register 帳號.
+DBAspNetIdentity.sql: SQLite
+IdentityTables.sql: SQLServer
+MySQLIdentity.sql: MySql
+
 □,○,△,◇,
