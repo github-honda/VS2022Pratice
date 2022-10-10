@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="zh-Hant-TW">
+
 <head>
-    <title>寫程式, 真有趣!</title>
+    <title>實作 Microsoft.AspNet.Identity.EntityFramewor (Visual Studio 2022)</title>
     <!-- BeginHead -->
     <!-- BeginMeta -->
     <meta charset="utf-8">
@@ -23,12 +24,12 @@
     <!-- BegigProjectCss -->
     <!-- EndProjectCssStyle -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-            crossorigin="anonymous"></script>
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
     <style>
         body {
             font-family: "DFKai-sb", "MingLiU", "Microsoft JhengHei";
@@ -57,30 +58,30 @@
             border-collapse: collapse;
         }
 
-            .TableLine td {
-                padding: 4px;
-                margin: 0;
-                border-width: 1px 1px 0 0;
-                border-style: solid;
-                border-color: black;
-            }
+        .TableLine td {
+            padding: 4px;
+            margin: 0;
+            border-width: 1px 1px 0 0;
+            border-style: solid;
+            border-color: black;
+        }
 
-            .TableLine th {
-                border: 1px solid black;
-                background-color: #FFC;
-                font-weight: bold;
-                padding: 4px;
-            }
+        .TableLine th {
+            border: 1px solid black;
+            background-color: #FFC;
+            font-weight: bold;
+            padding: 4px;
+        }
 
-            .TableLine caption {
-                padding-top: 3px;
-                padding-bottom: 8px;
-                font-weight: bold;
-            }
+        .TableLine caption {
+            padding-top: 3px;
+            padding-bottom: 8px;
+            font-weight: bold;
+        }
 
-            .TableLine tr.AltRow {
-                background-color: #FFC;
-            }
+        .TableLine tr.AltRow {
+            background-color: #FFC;
+        }
 
         /* HightLight style with table */
         .TableHighLight {
@@ -88,39 +89,41 @@
             border-collapse: collapse;
         }
 
-            .TableHighLight td {
-                padding: 4px;
-                margin: 0;
-                border-width: 1px 1px 0 0;
-                border-style: solid;
-                border-color: black;
-            }
+        .TableHighLight td {
+            padding: 4px;
+            margin: 0;
+            border-width: 1px 1px 0 0;
+            border-style: solid;
+            border-color: black;
+        }
 
-            .TableHighLight th {
-                border: 1px solid black;
-                background-color: #FFC;
-                font-weight: bold;
-                padding: 4px;
-            }
+        .TableHighLight th {
+            border: 1px solid black;
+            background-color: #FFC;
+            font-weight: bold;
+            padding: 4px;
+        }
 
-            .TableHighLight caption {
-                padding-top: 3px;
-                padding-bottom: 8px;
-                font-weight: bold;
-            }
+        .TableHighLight caption {
+            padding-top: 3px;
+            padding-bottom: 8px;
+            font-weight: bold;
+        }
 
-            .TableHighLight tr {
-                background-color: #FFC;
-            }
+        .TableHighLight tr {
+            background-color: #FFC;
+        }
 
-                .TableHighLight tr.AltRow {
-                    background-color: orange;
-                }
+        .TableHighLight tr.AltRow {
+            background-color: orange;
+        }
+
         /* End www011.css */
     </style>
     <!-- EndStyle -->
     <!-- EndHead -->
 </head>
+
 <body>
     <form method="post" action="./Default" id="form1">
         <!-- BeginForm -->
@@ -131,8 +134,8 @@
                 <a class="navbar-brand" href="https://www.011.idv.tw">寫程式, 真有趣!</a>
                 <!-- EndHomeLink -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -162,49 +165,57 @@
                     <div class="col">
                         From: 011netservice@gmail.com<br />
                         Date: 2022-10-09<br />
-                        Subject: <a name="Subject">實作 Visual Studio 2022 ASP.NET MVC Identity 及連接到 MySql.</a><br />
+                        Subject: <a name="Subject">實作 Microsoft.AspNet.Identity.EntityFramewor (Visual Studio 2022) 和 連接到 MySql.</a><br />
                         <br />
-						本文說明如何將 Visual Studio 2022 產生的 ASP.NET MVC 預設網站專案樣板, 取消 EntityFramework Code first, 並將資料庫從 SQL Server 2012? Express LocalDB 改為連接到 MySql 資料庫.<br />
-						<br />
-                        下載完成後的原始碼:<a href="https://github.com/github-honda/VS2022Pratice/tree/main/Asp/Idendity/MVC48IDMySql">MVC48IDMySql</a><br />
-						<br />
+                        本文說明如何將 Visual Studio 2022 產生的 ASP.NET MVC 預設網站專案樣板, 取消 EntityFramework Code first, 並將資料庫從 SQL
+                        Server 2012? Express LocalDB 改為連接到 MySql 資料庫.<br />
+                        <br />
+                        下載完成後的原始碼:<a
+                            href="https://github.com/github-honda/VS2022Pratice/tree/main/Asp/Idendity/MVC48IDMySql">MVC48IDMySql</a><br />
+                        <br />
                         歡迎來信交流, 訂購軟體需求.<br />
                         <br />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-修改步驟如下.<br />
-修改內容跟以前相同, 因此不再贅述, 請自行參考<a href="https://svc.011.idv.tw/CodeHelper/cs/vs2019/vs2019Practice/WebIdentity/doc/Readme-WebIdentitySqlServer.html">之前 VS2015, VS2019 改過的紀錄</a><br />
-□ 下載 Visual Studio 2022 產生的 <a href="https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/MVC48ID">ASP.NET MVC 網站專案 MVC48ID</a>, 或是自行以 Visual Studio 2022 建立後, 將專案名稱改為 MVC48IDMySql.<br />
-<br />
-□ 刪除參考:<br />
-1. Remove reference Microsoft.AspNet.Identity.EntityFramework<br />
-2. Remove reference EntityFramework.SqlServer<br />
-3. Remove reference EntityFramework<br />
-<br />
-□ 加入三個專案替代 EntityFramework 及支援 MySql <br />
-1. ZLib.<br />
-2. ZLibMySql, 參考 ZLib.<br />
-3. LibIdentityMySql, 參考 ZLibMySql 和 ZLib.<br />
-以上三個專案, 可從完成後的原始碼取得<br />
-<br />
-□ 參考以上三個專案(ZLib, ZLibMySql, LibIdentityMySql).<br />
-<br />
-□ 修改檔案:<br />
-1. App_Start\IdentityConfig.cs<br />
-2. App_Start\Startup.Auth.cs<br />
-3. Models\IdentityModels.cs<br />
-4. Web.config 的 ConnectionString.<br />
-<br />
-□ 編譯後以瀏覽器測試 Register, Login 是否資料庫正確儲存資料.<br />
-□ 可進入資料庫中, 刪除 AspNetUsers 已註冊的 id 資料, 就可以重新 Register 帳號.<br />
+                        修改步驟如下.<br />
+                        修改內容跟以前相同, 因此不再贅述, 請自行參考<a
+                            href="https://svc.011.idv.tw/CodeHelper/cs/vs2019/vs2019Practice/WebIdentity/doc/Readme-WebIdentitySqlServer.html">之前
+                            VS2015, VS2019 改過的紀錄</a><br />
+                        □ 下載 Visual Studio 2022 產生的 <a
+                            href="https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/MVC48ID">ASP.NET
+                            MVC 網站專案 MVC48ID</a>, 或是自行以 Visual Studio 2022 建立後, 將專案名稱改為 MVC48IDMySql.<br />
+                        <br />
+                        □ 刪除參考:<br />
+                        1. Remove reference Microsoft.AspNet.Identity.EntityFramework<br />
+                        2. Remove reference EntityFramework.SqlServer<br />
+                        3. Remove reference EntityFramework<br />
+                        <br />
+                        □ 加入三個專案替代 EntityFramework 及支援 MySql <br />
+                        1. ZLib.<br />
+                        2. ZLibMySql, 參考 ZLib.<br />
+                        3. LibIdentityMySql, 參考 ZLibMySql 和 ZLib.<br />
+                        以上三個專案, 可從完成後的原始碼取得<br />
+                        <br />
+                        □ 參考以上三個專案(ZLib, ZLibMySql, LibIdentityMySql).<br />
+                        <br />
+                        □ 修改檔案:<br />
+                        1. App_Start\IdentityConfig.cs<br />
+                        2. App_Start\Startup.Auth.cs<br />
+                        3. Models\IdentityModels.cs<br />
+                        4. Web.config 的 ConnectionString.<br />
+                        <br />
+                        □ 編譯後以瀏覽器測試 Register, Login 是否資料庫正確儲存資料.<br />
+                        □ 可進入資料庫中, 刪除 AspNetUsers 已註冊的 id 資料, 就可以重新 Register 帳號.<br />
 
-□ 補充<br />
-<a href="https://svc.011.idv.tw/CodeHelper/cs/ASPNET/identity/WebAuthSQL/doc/Readme-WebAuthSQL.html">取消 EntityFramework Code first 的好處</a><br />
+                        □ 補充<br />
+                        <a
+                            href="https://svc.011.idv.tw/CodeHelper/cs/ASPNET/identity/WebAuthSQL/doc/Readme-WebAuthSQL.html">取消
+                            EntityFramework Code first 的好處</a><br />
                     </div>
                 </div>
-				
+
                 <div class="row">
                     <div class="col">
                         <h3><a name="Log">Log</a></h3>
@@ -243,4 +254,5 @@
     </script>
     <!-- EndScript -->
 </body>
+
 </html>
