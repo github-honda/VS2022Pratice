@@ -5,18 +5,16 @@ Subject: MySQLIdentity.sql
 
 將 MS ASP.NET identity 框架使用的資料庫架構, 改為 MySQL.
 
-歡迎來信交流, 訂購軟體需求.<br />
+歡迎來信交流, 訂購軟體需求.
 
 */;
 
-
 CREATE DATABASE  IF NOT EXISTS `dbaspnetidentity` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `dbaspnetidentity`;
--- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
--- Host: localhost    Database: dbaspnetidentity
 -- ------------------------------------------------------
--- Server version	8.0.26
+-- Server version	8.0.31
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -162,8 +160,17 @@ CREATE TABLE `aspnetusers` (
 
 LOCK TABLES `aspnetusers` WRITE;
 /*!40000 ALTER TABLE `aspnetusers` DISABLE KEYS */;
+INSERT INTO `aspnetusers` VALUES ('d21cdde9-0ea7-47ac-b97d-c476f62272a6','hondachen@hotmail.com',0,'ANcwPNicapdlf/XM0Dq5jIJ1F6yHMobTIrEjssp9cvijRziKTClJPXkYRVNHxAqZng==','ec501d17-40d8-4853-9669-157c7d0c2bb3',NULL,0,0,NULL,1,0,'hondachen@hotmail.com');
 /*!40000 ALTER TABLE `aspnetusers` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'dbaspnetidentity'
+--
+
+--
+-- Dumping routines for database 'dbaspnetidentity'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -174,4 +181,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-23  9:37:35
+-- Dump completed on 2022-12-27  9:58:39
