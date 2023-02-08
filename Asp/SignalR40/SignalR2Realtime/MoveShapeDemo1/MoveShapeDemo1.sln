@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveShapeDemo1", "MoveShapeDemo1\MoveShapeDemo1.csproj", "{5723CC18-62A4-4A23-A6D5-0315C67C0F71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5723CC18-62A4-4A23-A6D5-0315C67C0F71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5723CC18-62A4-4A23-A6D5-0315C67C0F71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5723CC18-62A4-4A23-A6D5-0315C67C0F71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5723CC18-62A4-4A23-A6D5-0315C67C0F71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08385753-8EDC-4AD0-B9AD-83FA1EACB7C3}
+	EndGlobalSection
+EndGlobal

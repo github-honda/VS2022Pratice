@@ -1,0 +1,88 @@
+﻿@model GeekQuiz.Models.StatisticsViewModel
+@{
+    ViewBag.Title = "Trivia Statistics";
+}
+
+<section id="content" class="statistics">
+    <div class="container">
+        <div id="noDataMessage" class="row" style="display: none;">
+            <div class="col-md-12"><p class="lead text-center">No results yet.</p></div>
+        </div>
+        <div id="answersHeader" class="row" style="display: none;">
+            <div class="col-md-6">
+                <div class="alert alert-success">
+                    <h2 class="text-center">
+                        Correct answers:
+                        <span id="correctAnswersCounter">
+                            @Html.DisplayFor(model => model.CorrectAnswers)
+                        </span>
+                    </h2>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="alert alert-danger">
+                    <h2 class="text-center">
+                        Incorrect answers:
+                        <span id="incorrectAnswersCounter">
+                            @Html.DisplayFor(model => model.IncorrectAnswers)
+                        </span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div id="charts" class="row" style="display: none;">
+            <div class="col-md-6">
+                <h3>Correct vs Incorrect</h3>
+                <div id="leftChartContainer" class="chartContainer">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3>Average per user</h3>
+                <div id="rightChartContainer" class="chartContainer">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/jquery.signalR-2.2.0.min.js")
+    @Scripts.Render("~/signalr/hubs")
+    @Scripts.Render("~/Scripts/flotr2.js")
+    @Scripts.Render("~/Scripts/statistics.js")
+    <script>
+        var statisticsData = {
+            CorrectAnswers: parseInt('@Model.CorrectAnswers'),
+            IncorrectAnswers: parseInt('@Model.IncorrectAnswers'),
+            TotalAnswers: parseInt('@Model.TotalAnswers'),
+            CorrectAnswersAverage: parseFloat('@Model.CorrectAnswersAverage'),
+            IncorrectAnswersAverage: parseFloat('@Model.IncorrectAnswersAverage'),
+            TotalAnswersAverage: parseFloat('@Model.TotalAnswersAverage')
+        };
+
+        showCharts(statisticsData);
+
+        $(window).bind("resize", function () {
+            showCharts(statisticsData);
+        }).trigger("resize");
+
+        /*
+         增加 updateStatistics 方法, 自動接收伺服器端最新的統計資料, 因此可不需要重新瀏覽本畫面, 即可更新畫面上的內容.
+         updateStatistics 可以為任何名稱. 但是在執行期間, 必須在客戶端可找到對應的函式名稱, 否則不會有任何反應.
+         Update the statistics data when a new message is received from the hub
+         Creating a Hub Proxy and registering an event handler to listen for messages sent by the server. 
+         In this case, you listen for messages sent through the updateStatistics method.
+         */
+        var connection = $.hubConnection();
+        var hub = connection.createHubProxy("StatisticsHub");
+        hub.on("updateStatistics", function (statistics) {
+            statisticsData = statistics;
+            $("#correctAnswersCounter").text(statistics.CorrectAnswers);
+            $("#incorrectAnswersCounter").text(statistics.IncorrectAnswers);
+
+            showCharts(statisticsData);
+        });
+
+        connection.start();
+    </script>
+}
