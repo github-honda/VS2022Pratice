@@ -20,11 +20,11 @@ ASP.NET Core Web App (Model-View-Controller)
 - https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/ASPNETCoreWebAppIA1
 
 ### ASPNETCoreWebAppMvcIA1
-**ASP.NET Core Web App (Model-View-Controller), .NET 6.0, Individual Accounts, .NET 6.0, Individual Accounts, Configure for HTTPS=Checked.
+**ASP.NET Core Web App (Model-View-Controller), .NET 6.0, Individual Accounts, .NET 6.0, Individual Accounts, Configure for HTTPS=Checked.**
 - https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/Web/ASPNETCoreWebAppMvcIA1
 
 ### ASPNETCoreWebAppMvcIAScaffolder1
-**ASP.NET Core Web App (Model-View-Controller), .NET 6.0, Individual Accounts, .NET 6.0, Individual Accounts, Configure for HTTPS=Checked, Scaffolder.
+**ASP.NET Core Web App (Model-View-Controller), .NET 6.0, Individual Accounts, .NET 6.0, Individual Accounts, Configure for HTTPS=Checked, Scaffolder.**
 - https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/Web/ASPNETCoreWebAppMvcIAScaffolder1
 
 ### ASPNETCoreWebAppMvcNone1
