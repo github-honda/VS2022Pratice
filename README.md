@@ -8,36 +8,48 @@ Ongoing
 
 # OriginalTemplate
 **Visual Studio 2022 原生專案樣板**
-https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate
+- https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate
 
 ## NET60
 
 ### ASPNETCoreEmpty1
+- https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/ASPNETCoreEmpty1
 
 ### ASPNETCoreWebAppA1
+ASP.NET Core Web App (Model-View-Controller)
+- https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/ASPNETCoreWebAppIA1
 
 ### ASPNETCoreWebAppMvcIA1
-**ASP.NET Core Web App, MVC, .NET 6.0, Individual Accounts
+**ASP.NET Core Web App (Model-View-Controller), .NET 6.0, Individual Accounts, .NET 6.0, Individual Accounts, Configure for HTTPS=Checked.
+- https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/Web/ASPNETCoreWebAppMvcIA1
 
 ### ASPNETCoreWebAppMvcIAScaffolder1
-**ASP.NET Core Web App, MVC, .NET 6.0, Individual Accounts, Scaffolder
+**ASP.NET Core Web App (Model-View-Controller), .NET 6.0, Individual Accounts, .NET 6.0, Individual Accounts, Configure for HTTPS=Checked, Scaffolder.
+- https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/Web/ASPNETCoreWebAppMvcIAScaffolder1
 
 ### ASPNETCoreWebAppMvcNone1
-**ASP.NET Core Web App, MVC, .NET 6.0, None
+https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/ASPNETCoreWebAppMvcNone1
 
 ### ASPNETCoreWebAppNone1
+https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/ASPNETCoreWebAppNone1
 
 ### ConsoleApp1
+https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/ConsoleApp1
 
 ### ConsoleBase
+https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/ConsoleBase
 
 ### MassTransitDocker1
+https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/MassTransitDocker1
 
 ### MassTransitWorker1
+https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/MassTransitWorker1
 
 ### WinFormsApp1
+https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/WinFormsApp1
 
 ### WpfApp1
+https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/WpfApp1
 
 ## MVC48
 **ASP.NET MVC, Authentication=None, .NET Framework 4.8.**
