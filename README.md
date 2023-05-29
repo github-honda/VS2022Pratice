@@ -1,25 +1,63 @@
-# VS2022Practice
+VS2022Practice
 
-## ASP.NET
+# Template
 
-### MVC48IDMySql.sln
+## NET60MvcIAMySql
+Ongoing
+- 將原生網站(ASP.NET Core Web App, MVC, .NET 6.0, Individual Accounts)專案樣本, 取消 EntityFramework Code first, 並且從 SqlServer 改為 MySql.
+
+# OriginalTemplate
+**Visual Studio 2022 原生專案樣板**
+https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate
+
+## NET60
+
+### ASPNETCoreEmpty1
+
+### ASPNETCoreWebAppA1
+
+### ASPNETCoreWebAppMvcIA1
+**ASP.NET Core Web App, MVC, .NET 6.0, Individual Accounts
+
+### ASPNETCoreWebAppMvcIAScaffolder1
+**ASP.NET Core Web App, MVC, .NET 6.0, Individual Accounts, Scaffolder
+
+### ASPNETCoreWebAppMvcNone1
+**ASP.NET Core Web App, MVC, .NET 6.0, None
+
+### ASPNETCoreWebAppNone1
+
+### ConsoleApp1
+
+### ConsoleBase
+
+### MassTransitDocker1
+
+### MassTransitWorker1
+
+### WinFormsApp1
+
+### WpfApp1
+
+## MVC48
+**ASP.NET MVC, Authentication=None, .NET Framework 4.8.**
+https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/MVC48
+
+## MVC48ID
+**ASP.NET MVC,  Authentication=Individual Accounts, DB=SqlServer, .NET Framework 4.8.**
+https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/MVC48ID
+
+# ASP
+Old .NET Framework 4.8 
+
+## MVC48IDMySql
 **實作 ASP.NET MVC Identity 及連接到 MySql**
 https://svc.011.idv.tw/CodeHelper/cs/vs2022/VS2022Pratice/Asp/Idendity/MVC48IDMySql/doc/ChangeIdentityCodeFirstToAndUseMySql.html
 - 將原生網站專案樣本 ASP.NET MVC, 取消 EntityFramework Code first, 並且從 SqlServer 改為 MySql.
 - Implement Microsoft.AspNet.Identity.EntityFramework and change Database to MySql.
 - ASP.NET MVC, Authentication=Individual Accounts, DB=MySql.
 https://github.com/github-honda/VS2022Pratice/tree/main/Asp/Idendity/MVC48IDMySql
-,
 
+## SampleCode
 
-## OriginalTemplate
-**Visual Studio 2022 原生專案樣板**
-https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate
-
-### MVC48.sln
-**ASP.NET MVC, Authentication=None, .NET Framework 4.8.**
-https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/MVC48
-
-### MVC48ID.sln
-**ASP.NET MVC,  Authentication=Individual Accounts, DB=SqlServer, .NET Framework 4.8.**
-https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/MVC48ID
+## SignalR40
