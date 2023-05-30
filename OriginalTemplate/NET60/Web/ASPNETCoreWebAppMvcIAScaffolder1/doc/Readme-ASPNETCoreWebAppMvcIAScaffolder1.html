@@ -1,7 +1,7 @@
 ﻿<!doctype html>
 <html lang="zh-Hant-TW">
 <head>
-	<title>Template of (Visual Studio 2022, ASP.NET Core Web App (Model-View-Controller), .NET 6.0 (Long Term Support), Individual Accounts, HTTPS.</title>
+	<title>Code In Fun</title>
     <!-- BeginHead -->
     <!-- BeginMeta -->
     <meta charset="utf-8">
@@ -72,10 +72,15 @@
 			<div class="row">
 				<div class="col">
 					From: 011netservice@gmail.com<br />
-					Date: 2023-05-28<br />
-					Subject: Template of (Visual Studio 2022, ASP.NET Core Web App (Model-View-Controller), .NET 6.0 (Long Term Support), Individual Accounts, HTTPS.<br />
+					Date: 2023-05-30<br />
+					Subject: 將收藏在 Microsoft.AspNetCore.Identity.UI NuGet 中的 Identity, Scaffolder, Razor Page, .cshtml 網頁取出.<br />
+					<a href="https://svc.011.idv.tw/CodeHelper/cs/vs2022/VS2022Pratice/OriginalTemplate/NET60/Web/ASPNETCoreWebAppMvcIAScaffolder1/doc/Readme-ASPNETCoreWebAppMvcIAScaffolder1.html">本文網址</a> | 
+					<a href="https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/Web/ASPNETCoreWebAppMvcIAScaffolder1">原始碼</a><br />
+					
 					<br />
-					本文紀錄建立  Template of (Visual Studio 2022, ASP.NET Core Web App (Model-View-Controller), .NET 6.0 (Long Term Support), Individual Accounts, HTTPS.<br />
+					本文說明 如何將收藏在 Microsoft.AspNetCore.Identity.UI NuGet 中的 Identity, Scaffolder, Razor Page, .cshtml 網頁取出, 以便修改.<br />
+					適用於 Template of (Visual Studio 2022, ASP.NET Core Web App (Model-View-Controller), .NET 6.0 (Long Term Support), Individual Accounts, HTTPS 所產生的原始碼,.
+					<br />
 					<br />
 					歡迎來信交流, 訂購軟體需求.<br />
 					<br />
@@ -85,7 +90,10 @@
              <!-- BeginEntryBody -->
 			<div class="row">
 				<div class="col">
-					開啟 Visual Studio 2022, 選擇 Create a new project, ASP.NET Core Web App (Model-View-Controller)<br />
+					Visual Studio 2022 建立專案時, 選用 ASP.NET Core Web App (Model-View-Controller), .NET 6.0 (Long Term Support), Individual Accounts, HTTPS 所產生的
+					<a href="https://svc.011.idv.tw/CodeHelper/cs/vs2022/VS2022Pratice/OriginalTemplate/NET60/Web/ASPNETCoreWebAppMvcIA1/doc/Readme-ASPNETCoreWebAppMvcIA1.html">原始碼</a>
+					,會將大部分的 Identity 介面收藏在 Microsoft.AspNetCore.Identity.UI NuGet, 因此 Areas/Identity/Pages中只剩下 _ViewStart.cshtml, 
+					其餘的 Razor Page 在 ASP.NET Core 2.1 版本之後都不見了.
 					<br />
 				</div>
 				<div class="col">
@@ -95,7 +103,7 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					Project name="ASPNETCoreWebAppMvcIA" 或自訂你的專案名稱<br />
+					在專案項目上按滑鼠右鍵, 選擇 Add.New Scaffolded item...<br />
 					<br />
 				</div>
 				<div class="col">
@@ -105,7 +113,7 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					Framework=".NET 6.0 (Long Term Support)", Authentication Type="Individual Accounts", Configure for HTTPS=Checked<br />
+					畫面 Add New Scaffolded item 中選擇 Identity 後再 Add.<br />
 					<br />
 				</div>
 				<div class="col">
@@ -115,7 +123,12 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					Create 建立網站完成後如下.<br />
+					畫面 Add Identity 中填入:<br />
+					Override all files: Checked.<br />
+					DbContext class: 專案名稱.Data.CAppDbContext, 例如: ASPNETCoreWebAppMvcIAScaffolder1.Data.CApp<br />
+					Database provider: SQL Server<br />
+					User class: blank.<br />
+					按下方按鍵 Add.<br />
 					<br />
 				</div>
 				<div class="col">
@@ -125,32 +138,14 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					Areas/Identity/Pages中只剩下 _ViewStart.cshtml, 其餘的 Razor Page 在 ASP.NET Core 2.1 都被收藏在 Microsoft.AspNetCore.Identity.UI NuGet 中.<br />
+					專案中已新增檔案:<br />
+				    Areas\Identiy\Data\CAppDbContext.cs<br />
+				    Areas\Identiy\Pages\Acount\*.cshtml<br />
+				    以及其他檔案.<br />
 					<br />
 				</div>
 				<div class="col">
 					<img src="010050.jpg" class="img-fluid" alt=""><br />
-					<br />
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					預設安裝的 NuGet Packages.<br />
-					Identity 的 Razor Page .cshtml 網頁收藏在 Microsoft.AspNetCore.Identity.UI 中.<br />
-					<br />
-				</div>
-				<div class="col">
-					<img src="010060.jpg" class="img-fluid" alt=""><br />
-					<br />
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					展開各子目錄<br />
-					<br />
-				</div>
-				<div class="col">
-					<img src="010070.jpg" class="img-fluid" alt=""><br />
 					<br />
 				</div>
 			</div>
