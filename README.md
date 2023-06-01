@@ -5,6 +5,10 @@ VS2022Practice
 ## NET60MvcIAMySql
 Ongoing
 - 將原生網站(ASP.NET Core Web App, MVC, .NET 6.0, Individual Accounts)專案樣本, 取消 EntityFramework Code first, 並且從 SqlServer 改為 MySql.
+ref:
+1. Identity model customization in ASP.NET Core: https://learn.microsoft.com/en-us/aspnet/core/security/authentication/customize-identity-model?view=aspnetcore-6.0
+2. Custom storage providers for ASP.NET Core Identity: https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity-custom-storage-providers?view=aspnetcore-6.0
+
 
 # OriginalTemplate
 **Visual Studio 2022 原生專案樣板**
@@ -21,11 +25,14 @@ ASP.NET Core Web App (Model-View-Controller)
 
 ### ASPNETCoreWebAppMvcIA1
 **ASP.NET Core Web App (Model-View-Controller), .NET 6.0, Individual Accounts, .NET 6.0, Individual Accounts, Configure for HTTPS=Checked.**
+- https://svc.011.idv.tw/CodeHelper/cs/vs2022/VS2022Pratice/OriginalTemplate/NET60/Web/ASPNETCoreWebAppMvcIA1/doc/Readme-ASPNETCoreWebAppMvcIA1.html
 - https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/Web/ASPNETCoreWebAppMvcIA1
 
-### ASPNETCoreWebAppMvcIAScaffolder1
-**ASP.NET Core Web App (Model-View-Controller), .NET 6.0, Individual Accounts, .NET 6.0, Individual Accounts, Configure for HTTPS=Checked, Scaffolder.**
-- https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/Web/ASPNETCoreWebAppMvcIAScaffolder1
+### ASPNETCoreWebAppMvcIAScaffold1
+**ASP.NET Core Web App (Model-View-Controller), .NET 6.0, Individual Accounts, .NET 6.0, Individual Accounts, Configure for HTTPS=Checked, Scaffold.**
+已取出所有的 Scaffold Razor Pages 專案範本
+- https://svc.011.idv.tw/CodeHelper/cs/vs2022/VS2022Pratice/OriginalTemplate/NET60/Web/ASPNETCoreWebAppMvcIAScaffold1/doc/Readme-ASPNETCoreWebAppMvcIAScaffold1.html
+- https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/Web/ASPNETCoreWebAppMvcIAScaffold1
 
 ### ASPNETCoreWebAppMvcNone1
 https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/ASPNETCoreWebAppMvcNone1
