@@ -98,7 +98,7 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					Project name="你的專案名稱", 本文專案名稱為 ASPNETCoreWebAppMvcIA<br />
+					Project name="你的專案名稱", 本文專案名稱為 ASPNETCoreWebAppMvcIA1<br />
 					<br />
 				</div>
 				<div class="col">
@@ -118,42 +118,121 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					Create 建立網站完成後如下.<br />
-					<br />
-				</div>
-				<div class="col">
-					<img src="010040.jpg" class="img-fluid" alt=""><br />
-					<br />
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					Areas/Identity/Pages中只剩下 _ViewStart.cshtml, 其餘的 Razor Page 在 ASP.NET Core 2.1 都被收藏在 Microsoft.AspNetCore.Identity.UI NuGet 中.<br />
-					<br />
-				</div>
-				<div class="col">
-					<img src="010050.jpg" class="img-fluid" alt=""><br />
-					<br />
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					預設安裝的 NuGet Packages.<br />
+					建立網站後如下圖.<br />
 					Identity 的 Razor Page .cshtml 網頁收藏在 Microsoft.AspNetCore.Identity.UI 中.<br />
-					<br />
-				</div>
-				<div class="col">
-					<img src="010060.jpg" class="img-fluid" alt=""><br />
-					<br />
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					展開各子目錄<br />
+					Areas/Identity/Pages中, 只剩下 _ViewStart.cshtml, 其餘的 Razor Page 在 ASP.NET Core 2.1 都被收藏在 Microsoft.AspNetCore.Identity.UI NuGet 中.<br />
 					<br />
 				</div>
 				<div class="col">
 					<img src="010070.jpg" class="img-fluid" alt=""><br />
+					<br />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					執行後首頁.<br />
+					<br />
+				</div>
+				<div class="col">
+					<img src="020010.jpg" class="img-fluid" alt=""><br />
+					<br />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					註冊使用者的頁面, 我們輸入帳號: test@test.com, 密碼: Test@Test.123註冊看看?<br />
+					<br />
+				</div>
+				<div class="col">
+					<img src="020020.jpg" class="img-fluid" alt=""><br />
+					<br />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				    由於還沒執行 Database migrations, 所以會碰到 Cannot open database "aspnet-ASPNETCoreWebAppMvcIA1-b02ad989-b320-4e51-a5bc-70f7309ba7f0" 的錯誤畫面. <br />
+					這個資料庫, 必須已經建立在 %userprofile% 中, 才能順利執行.<br />
+					<br />
+				</div>
+				<div class="col">
+					<img src="020030.jpg" class="img-fluid" alt=""><br />
+					<br />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					畫面上提示有三種方法可以進行 Database migrations, 建立資料庫.<br />
+					若直接按畫面上的 Apply Migrations, 則通常仍會出現權限不足的錯誤訊息.<br />
+					這是因為必須擁有權限, 才能將資料庫建立在 %userprofile% 中.<br />
+					<br />
+				</div>
+				<div class="col">
+					<img src="020040.jpg" class="img-fluid" alt=""><br />
+					<br />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				    在 Visual Studio 2022 Package Manager Console 中執行指令 Update-Database, 就可以擁有權限, 順利完成.<br />
+				    或是在 Posershell 中執行指令 dotnet ef database update.<br />
+					建立後的資料庫, 是存放在 %userprofile%\aspnet-專案名稱*.* 中.<br />
+					
+					<br />
+				</div>
+				<div class="col">
+					<img src="020050.jpg" class="img-fluid" alt=""><br />
+					<br />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					完成 Database Migrations 後, 再到註冊使用者的 Register 畫面中, 輸入帳號: test@test.com, 密碼: Test@Test.123 註冊新使用者.<br />
+					若註冊成功後, 就可以看到畫面 Register confimation 畫面.<br />
+					由於這只是個網站樣板, 因此確認註冊的程序, 就只是按畫面上的連結( Click here to confirm your account), 就代表確認了.<br />  
+					<br />
+				</div>
+				<div class="col">
+					<img src="020060.jpg" class="img-fluid" alt=""><br />
+					<br />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					在 Register confirmation 畫面上, 按畫面上的連結( Click here to confirm your account)後, 出現 Confirm email 就代表使用者 test@test.com 已經註冊成功, 存入資料庫中了. <br />
+					<br />
+				</div>
+				<div class="col">
+					<img src="020070.jpg" class="img-fluid" alt=""><br />
+					<br />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					若重新登入網站, 則可使用先前已經註冊的帳號: test@test.com, 密碼: Test@Test.123 登入.<br />
+					<br />
+				</div>
+				<div class="col">
+					<img src="020080.jpg" class="img-fluid" alt=""><br />
+					<br />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					首頁右上方, 若已登入, 則會顯示目前登入的使用者名稱.<br />
+					<br />
+				</div>
+				<div class="col">
+					<img src="020090.jpg" class="img-fluid" alt=""><br />
+					<br />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					首頁右上方, 若未登入, 會顯示 Register 可註冊新會員.<br />
+					<br />
+				</div>
+				<div class="col">
+					<img src="020110.jpg" class="img-fluid" alt=""><br />
 					<br />
 				</div>
 			</div>
