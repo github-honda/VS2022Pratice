@@ -40,11 +40,9 @@ https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/A
 ### ASPNETCoreWebAppNone1
 https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/ASPNETCoreWebAppNone1
 
-### ConsoleApp1
-https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/ConsoleApp1
-
 ### ConsoleBase
-https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/ConsoleBase
+- https://svc.011.idv.tw/CodeHelper/cs/vs2022/VS2022Pratice/OriginalTemplate/NET60/ConsoleBase_DoNotUseTopLevelStatements/ConsoleBase/doc/Readme-ConsoleBase.html
+- https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/ConsoleBase_DoNotUseTopLevelStatements
 
 ### MassTransitDocker1
 https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/MassTransitDocker1
