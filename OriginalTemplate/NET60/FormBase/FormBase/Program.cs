@@ -1,4 +1,4 @@
-namespace WinFormsApp1
+namespace FormBase
 {
     internal static class Program
     {

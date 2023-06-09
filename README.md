@@ -50,8 +50,10 @@ https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/M
 ### MassTransitWorker1
 https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/MassTransitWorker1
 
-### WinFormsApp1
-https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/WinFormsApp1
+### FormBase
+Windows Forms, .NET 6.
+https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/FormBase
+
 
 ### WpfApp1
 https://github.com/github-honda/VS2022Pratice/tree/main/OriginalTemplate/NET60/WpfApp1
