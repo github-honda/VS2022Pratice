@@ -6,6 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <!--
+     RootNamespace $(MSBuildProjectName)
+     AssemblyName $(MSBuildProjectName.Replace(" ", "_"))
+    -->
+    <AssemblyName>FormBase</AssemblyName>
+    <RootNamespace>FormBase</RootNamespace>
   </PropertyGroup>
 
 </Project>
