@@ -1,0 +1,13 @@
+Menu:
+-----------------------------------------------------------------------------------------
+1.ThreadId Log.                  a.Task.Run(() => MainAsync()); k.   u.
+2.Write binary data.             b.RunYieldTest.                l.   v.
+3.Read XML data.                 c.Process.StartCmd().          m.   w.
+4.Write XML data.                d.JSON with DataBase.          n.   x.
+5.Cache ZSubstringBetween.       e.Read/Write XMLBase file.     o.   y.
+6.DeepCopy                       f.NotifyMessage SendMsg.       p.   z.
+7.Download Taiex                 g.ZType.BuildTypeNameListing() q.
+8.Code34.                        h.Process.StartCmdStart().     r.
+9.ini auto create file.          i.Event test.                  s. WebSocketService
+0.Show Menu                      j.Task test.                   t. WebSocketClient
+-----------------------------------------------------------------------------------------

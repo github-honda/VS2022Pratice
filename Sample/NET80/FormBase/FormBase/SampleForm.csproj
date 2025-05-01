@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!--
+     RootNamespace $(MSBuildProjectName)
+     AssemblyName $(MSBuildProjectName.Replace(" ", "_"))
+    -->
+    <AssemblyName>FormBase</AssemblyName>
+    <RootNamespace>FormBase</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTemplate\Abstract_Template.cs" />
+  </ItemGroup>
+
+</Project>
