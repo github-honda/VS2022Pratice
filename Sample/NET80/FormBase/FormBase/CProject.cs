@@ -1,20 +1,16 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using System.Diagnostics;
-using ConsoleBase.DJson;
-using System.Text.Json;
 using System.Text.Encodings.Web;
+using System.Text.Json;
 using System.Text.Unicode;
-using Microsoft.Extensions.FileSystemGlobbing.Internal;
-using System.Xml.Linq;
+using System.Threading.Tasks;
+using FormBase.DItem;
 
-namespace ConsoleBase
+namespace FormBase
 {
     public class CProject : IDisposable
     {
@@ -22,16 +18,18 @@ namespace ConsoleBase
         {
             _args = PArgs;
         }
-        public const string CProjectID = "SampleConsole";
+        public const string CProjectID = "SampleForm";
         public const string COptionFile = $"{CProjectID}.json";
+        public const string COptionFile_Default = $"{CProjectID}.default.json";
         //public readonly string _DebugFile = $"{CProjectID}_{DateTime.Now.ToString("yyyyMMdd_HHmmss")}.txt";
         public const string CDebugFile = $"{CProjectID}_Debug.txt";
-        public string _Name { get; private set; } = string.Empty;
 
+        public string _Name { get; private set; } = string.Empty;
         string[] _args;
         TextWriterTraceListener? _TextWriterTraceListener = null;
 
         public static CProject? _Me = null!;
+        public static Form1? _MainForm = null!;
         public COption _Option = new();
 
 
@@ -63,14 +61,14 @@ namespace ConsoleBase
                 {
                     string sDefaultFile = $"{CProjectID}.default.json";
                     SaveOption(sDefaultFile);
-                    throw new Exception($"無法讀取啟動設定檔={COptionFile}. 請連繫原廠取得, 或參考 {sDefaultFile} 提供正確的設定值.");
+                    throw new Exception($"無法讀取設定檔={COptionFile}. 請連繫原廠取得, 或參考 {sDefaultFile} 提供正確的設定值.");
                 }
                 if (_Option.ID != CProjectID)
                     throw new Exception($"設定檔 ID 錯誤.");
 
                 _Name = _Option.Name;
                 Debug.WriteLine($"ProjectName={_Name}.");
-
+               
                 EnableDebug(_Option.Debug == 1);
                 Debug.WriteLine($"ConnectionString={_Option!.ConnectionString}.");
 
@@ -78,20 +76,21 @@ namespace ConsoleBase
                 //var test1 = new FlatJsonConvert_Test();
                 //test1.Run();
 
-                var test2 = new TreeString4_Test();
-                test2.Run();
+                //var test2 = new TreeString4_Test();
+                //test2.Run();
+                JsonEachType cJsonValues = new JsonEachType();
+                cJsonValues.SerializeTest($"{nameof(JsonEachType)}.json");
+
                 Console.WriteLine($"DebugFile={CDebugFile}");
+
+                MessageBox.Show("執行成功", _Name, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.ToString());
-                Console.WriteLine(ex.ToString());
+                MessageBox.Show(ex.ToString(), _Name, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            Console.Write("End run, Type any key to continue.");
-            Console.Read();
         }
-
         public void EnableDebug(bool PEnable)
         {
             if (PEnable)
@@ -125,12 +124,7 @@ namespace ConsoleBase
                 return false;
             }
         }
-        public void SaveOption(string PFile)
-        {
-            using FileStream stream1 = File.Create(PFile);
-            byte[] bytes = JsonSerializer.SerializeToUtf8Bytes(_Option, new JsonSerializerOptions { WriteIndented = true, Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.CjkUnifiedIdeographs), });
-            stream1.Write(bytes, 0, bytes.Length);
-        }
+        public void SaveOption(string PFile) => CCommon.SerializeToFile(_Option, PFile);
 
         #region IDisposable pattern
         private bool _Disposed;
@@ -165,5 +159,6 @@ namespace ConsoleBase
         }
 
         #endregion
+
     }
 }

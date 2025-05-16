@@ -21,6 +21,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Authentication;
 
 namespace FormBase.DTCPIP.Service
 {
@@ -64,6 +65,14 @@ namespace FormBase.DTCPIP.Service
                     clientSocket.Close();
                     Console.WriteLine("已關閉與客戶端的連線\n");
                 }
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"IO 錯誤: {ex.Message}");
+            }
+            catch (SocketException ex)
+            {
+                Console.WriteLine($"Socket 錯誤: {ex.Message}");
             }
             catch (Exception ex)
             {

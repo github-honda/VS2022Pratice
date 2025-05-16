@@ -32,6 +32,8 @@
             button1 = new Button();
             btnMarshal = new Button();
             button2 = new Button();
+            menuStrip1 = new MenuStrip();
+            statusStrip1 = new StatusStrip();
             SuspendLayout();
             // 
             // textBox1
@@ -43,7 +45,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(75, 253);
+            button1.Location = new Point(83, 218);
             button1.Name = "button1";
             button1.Size = new Size(177, 39);
             button1.TabIndex = 1;
@@ -53,7 +55,7 @@
             // 
             // btnMarshal
             // 
-            btnMarshal.Location = new Point(283, 281);
+            btnMarshal.Location = new Point(294, 231);
             btnMarshal.Name = "btnMarshal";
             btnMarshal.Size = new Size(177, 39);
             btnMarshal.TabIndex = 2;
@@ -63,7 +65,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(95, 364);
+            button2.Location = new Point(111, 263);
             button2.Name = "button2";
             button2.Size = new Size(177, 39);
             button2.TabIndex = 3;
@@ -71,15 +73,36 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 4;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.ImageScalingSize = new Size(20, 20);
+            statusStrip1.Location = new Point(0, 428);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(800, 22);
+            statusStrip1.TabIndex = 5;
+            statusStrip1.Text = "statusStrip1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(statusStrip1);
             Controls.Add(button2);
             Controls.Add(btnMarshal);
             Controls.Add(button1);
             Controls.Add(textBox1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -93,5 +116,7 @@
         private Button button1;
         private Button btnMarshal;
         private Button button2;
+        private MenuStrip menuStrip1;
+        private StatusStrip statusStrip1;
     }
 }

@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Authentication;
 
 namespace FormBase.DTCPIP.Service
 {
@@ -37,11 +38,18 @@ namespace FormBase.DTCPIP.Service
                     clientThread.Start();
                 }
             }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"IO 錯誤: {ex.Message}");
+            }
+            catch (SocketException ex)
+            {
+                Console.WriteLine($"Socket 錯誤: {ex.Message}");
+            }
             catch (Exception ex)
             {
-                Console.WriteLine("發生錯誤: " + ex.Message);
+                Console.WriteLine($"伺服器錯誤: {ex.Message}");
             }
-
             Console.WriteLine("伺服器結束...");
             Console.ReadKey();
         }

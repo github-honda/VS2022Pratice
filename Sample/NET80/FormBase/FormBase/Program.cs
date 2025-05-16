@@ -1,17 +1,23 @@
+using System.Diagnostics;
+
 namespace FormBase
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Debug.WriteLine("Main()");
+            using (CProject._Me = new CProject(args))
+            {
+                ApplicationConfiguration.Initialize();
+                //Application.Run(new Form1());
+                CProject._MainForm = new Form1();
+                Application.Run(CProject._MainForm);
+
+                //// ¨ì Form1_Shown ¦A°õ¦æ
+                //Task.Run(CProject._Me.Run);
+            }
         }
     }
 }

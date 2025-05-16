@@ -18,4 +18,10 @@
     <Compile Remove="DTemplate\Abstract_Template.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="SampleForm.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

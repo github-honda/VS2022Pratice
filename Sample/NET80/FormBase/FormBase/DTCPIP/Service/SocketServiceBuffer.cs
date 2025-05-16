@@ -9,7 +9,7 @@
 收資料用 await ReceiveAsync()
 傳資料用 await SendAsync()
 每個 client 用一個 Task（非 Thread），大量 client 也不會塞爆 CPU
-超適合高併發測試！
+超適合高併發測試！ High Availability | 高可用性
 
 
 此範例的架構分為以下幾個函數：
@@ -29,10 +29,11 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Authentication;
 
 namespace FormBase.DTCPIP.Service
 {
-    public class AsyncSocketServerTemplate
+    public class SocketServiceBuffer
     {
         public async Task Run(string[] args)
         {
@@ -58,6 +59,14 @@ namespace FormBase.DTCPIP.Service
                     }
                 }
             }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"IO 錯誤: {ex.Message}");
+            }
+            catch (SocketException ex)
+            {
+                Console.WriteLine($"Socket 錯誤: {ex.Message}");
+            }
             catch (Exception ex)
             {
                 Console.WriteLine($"伺服器發生錯誤: {ex.Message}");
@@ -81,6 +90,14 @@ namespace FormBase.DTCPIP.Service
                 byte[] responseBytes = Encoding.UTF8.GetBytes(response);
                 await clientSocket.SendAsync(responseBytes, SocketFlags.None);
                 Console.WriteLine("已回應訊息給客戶端");
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"IO 錯誤: {ex.Message}");
+            }
+            catch (SocketException ex)
+            {
+                Console.WriteLine($"Socket 錯誤: {ex.Message}");
             }
             catch (Exception ex)
             {

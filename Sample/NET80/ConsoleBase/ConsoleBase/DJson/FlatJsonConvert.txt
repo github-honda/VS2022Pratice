@@ -1,0 +1,240 @@
+From: 011netservice@gmail.com
+Date: 2025-05-02
+Subject: FlatJsonConvert
+
+ref: https://blog.darkthread.net/blog/flatten-json-with-csharp/
+
+
+歡迎來信交流, 訂購軟體需求.
+
+#### 調整
+FlatJsonConvert.cs
+FlatJsonConvert_Test.cs
+
+
+#### 原文
+例如這樣的 JSON 結構：
+{
+  "A": [1,2,3],
+  "B": {"X": 4,"Y": 5},
+  "C": [
+    {
+      "Z": 6,
+      "D": [
+        {
+          "P": true, "Q": false, "B": {"X": 0,"Y": 1}
+        },
+        {
+          "P": true, "Q": true, "B": null
+        }
+      ]
+    },
+    {
+      "Z": 7, "D": null
+    }
+  ]
+}
+
+要轉成這樣的 Dictionary<string, object>：
+{
+  "A[0]": 1,
+  "A[1]": 2,
+  "A[2]": 3,
+  "B.X": 4,
+  "B.Y": 5,
+  "C[0].Z": 6,
+  "C[0].D[0].P": true,
+  "C[0].D[0].Q": false,
+  "C[0].D[0].B.X": 0,
+  "C[0].D[0].B.Y": 1,
+  "C[0].D[1].P": true,
+  "C[0].D[1].Q": true,
+  "C[0].D[1].B": null,
+  "C[1].Z": 7,
+  "C[1].D": null
+}
+
+FlatJsonConvert.cs
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Dynamic;
+using System.Linq;
+
+namespace FlatJson
+{
+    /// <summary>
+    /// Flatten nested JSON 
+    /// { "A":[1,2,3], "B":{"X":4,"Y":5},"C":[{"Z":6},{"Z":7}]}
+    /// to simple key/value dictionary
+    /// {"A[0]":1,"A[1]":2,"A[2]": 3,"B.X":4,"B.Y":5,"C[0].Z":6,"C[1].Z":7}
+    /// </summary>
+    public static class FlatJsonConvert
+    {
+        static void ExploreAddProps(Dictionary<string, object> props, string name, Type type, object value)
+        {
+            if (value == null || type.IsPrimitive || type == typeof(DateTime) || type == typeof(string))
+                props.Add(name, value);
+            else if (type.IsArray)
+            {
+                var a = (Array)value;
+                for (var i = 0; i < a.Length; i++)
+                    ExploreAddProps(props, $"{name}[{i}]", type.GetElementType(), a.GetValue(i));
+            }
+            else
+            {
+                type.GetProperties().ToList()
+                    .ForEach(p =>
+                    {
+                        var prefix = string.IsNullOrEmpty(name) ? string.Empty : name + ".";
+                        ExploreAddProps(props, $"{prefix}{p.Name}", p.PropertyType, p.GetValue(value));
+                    });
+            }
+        }
+
+        public static string Serialize<T>(T data)
+        {
+            var props = new Dictionary<string, object>();
+            ExploreAddProps(props, string.Empty, typeof(T), data);
+            return JsonConvert.SerializeObject(props, Formatting.Indented);
+        }
+
+        public static T Deserialize<T>(string json)
+        {
+            var props = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+            ExpandoObject data = new ExpandoObject();
+            Action<string, object> SetProp = (propName, propValue) =>
+            {
+                var seg = propName.Split('.');
+                object curr = data;
+                for (var i = 0; i < seg.Length; i++)
+                {
+                    var n = seg[i];
+                    var isLeaf = i == seg.Length - 1;
+                    if (n.Contains("[")) //for array
+                    {
+                        var pn = n.Split('[').First();
+                        var d = curr as IDictionary<string, object>;
+                        if (!d.ContainsKey(pn)) d[pn] = new List<object>();
+                        if (isLeaf)
+                            (d[pn] as List<object>).Add(propValue);
+                        else
+                        {
+                            var idx = int.Parse(n.Split('[').Last().TrimEnd(']'));
+                            var lst = (d[pn] as List<object>);
+                            if (idx == lst.Count) lst.Add(new ExpandoObject());
+                            if (idx < lst.Count)
+                                curr = lst[idx];
+                            else
+                                throw new NotImplementedException("Skiped index is not supported");
+                        }
+                    }
+                    else //for property
+                    {
+                        if (curr is List<object>)
+                            throw new NotImplementedException("Array of array is not supported");
+                        else
+                        {
+                            var d = curr as IDictionary<string, object>;
+                            if (isLeaf)
+                                d[n] = propValue;
+                            else
+                            {
+                                if (!d.ContainsKey(n)) d[n] = new ExpandoObject();
+                                curr = d[n];
+                            }
+                        }
+                    }
+                }
+            };
+
+            props.Keys.OrderBy(o => o.Split('.').Length) //upper level first
+                .ThenBy(o => //prop first, array elements ordered by index
+                    !o.Split('.').Last().Contains("]") ? -1 :
+                    int.Parse(o.Split('.').Last().Split('[').Last().TrimEnd(']')))
+                .ToList().ForEach(o => SetProp(o, props[o]));
+
+            var unflattenJson = JsonConvert.SerializeObject(data);
+            return JsonConvert.DeserializeObject<T>(unflattenJson);
+        }
+
+    }
+
+}
+
+驗證程式
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FlatJson
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            AType data = new AType()
+            {
+                A = new int[] { 1, 2, 3 },
+                B = new BType() { X = 4, Y = 5 },
+                C = new CType[]
+                {   
+                    new CType() {           
+                        Z = 6,
+                        D = new DType[] {
+                            new DType() {
+                                P = true,
+                                Q = false,
+                                B = new BType() { X = 0, Y = 1 }
+                            },
+                            new DType()
+                            {
+                                P = true,
+                                Q = true                            }
+                        }
+                    },
+                    new CType() { Z = 7}
+                }
+            };
+            var origJson = JsonConvert.SerializeObject(data, Formatting.Indented);
+            var flattenJson = FlatJsonConvert.Serialize<AType>(data);
+            var restored = FlatJsonConvert.Deserialize<AType>(flattenJson);
+            var restoredJson = JsonConvert.SerializeObject(restored, Formatting.Indented);
+            Console.WriteLine(origJson);
+            Console.WriteLine(flattenJson);
+            Console.WriteLine("Check Result = " + (restoredJson == origJson ? "PASS" : "FAIL"));
+            Console.Read();
+        }
+    }
+
+    public class AType
+    {
+        public int[] A { get; set; }
+        public BType B { get; set; }
+        public CType[] C { get; set; }
+    }
+
+    public class BType
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+    }
+
+    public class CType
+    {
+        public int Z { get; set; }
+        public DType[] D { get; set; }
+    }
+
+    public class DType
+    {
+        public bool P { get; set; }
+        public bool Q { get; set; }
+        public BType B { get; set; }
+    }
+
+}
+

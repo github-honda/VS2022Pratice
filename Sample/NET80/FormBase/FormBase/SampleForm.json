@@ -1,0 +1,8 @@
+{
+  "ID": "SampleForm",
+  "Name": "專案名稱SampleForm",
+  "Version": "1.0.0",
+  "ConnectionString": "HostDatabaseUserPassword",
+  "Debug": 0,
+  "Log": 0
+}

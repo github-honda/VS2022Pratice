@@ -1,0 +1,8 @@
+{
+  "ID": "SampleConsole",
+  "Name": "專案名稱SampleConsole",
+  "Version": "1.0.0",
+  "ConnectionString": "HostDatabaseUserPassword",
+  "Debug": 0,
+  "Log": 0
+}
