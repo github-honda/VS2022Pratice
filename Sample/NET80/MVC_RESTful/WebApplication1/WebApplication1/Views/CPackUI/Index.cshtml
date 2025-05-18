@@ -1,0 +1,31 @@
+﻿@model List<WebApplication1.Models.CPack>
+
+<h2>CPack 列表</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>SeqNo</th>
+            <th>Msg</th>
+            <th>Code</th>
+            <th>UpdateTime</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item._SeqNo</td>
+                <td>@item._Msg</td>
+                <td>@item._Code</td>
+                <td>@item._UpdateTime</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item._SeqNo">編輯</a> |
+                    <a asp-action="Delete" asp-route-id="@item._SeqNo">刪除</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">新增 CPack</a>

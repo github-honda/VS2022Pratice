@@ -24,7 +24,7 @@ namespace SampleWorkerService
 
         const string _EventLogSource = "MyWorkerService"; // WriteEntry() requires a source name
         const string _EventLogName = "Application"; // EventLog.CreateEventSource()   The name of the event log to write to 
-
+        #endregion
         public Worker(ILogger<Worker> logger)
         {
             _logger = logger;

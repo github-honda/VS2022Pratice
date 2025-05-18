@@ -1,0 +1,12 @@
+﻿@model WebApplication1.Models.CPack
+
+<h2>刪除 CPack</h2>
+
+<p>確定要刪除 <strong>@Model._Msg</strong> 嗎？</p>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input asp-for="_SeqNo" type="hidden" />
+    <button type="submit" class="btn btn-danger">刪除</button>
+</form>
+
+<a asp-action="Index">取消</a>

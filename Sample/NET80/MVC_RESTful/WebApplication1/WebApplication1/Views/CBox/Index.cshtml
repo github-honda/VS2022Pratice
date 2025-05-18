@@ -1,0 +1,31 @@
+﻿@model List<WebApplication1.Models.CBox>
+
+<h2>CBox 列表</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Key</th>
+            <th>Name</th>
+            <th>Level</th>
+            <th>CreateTime</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item._Key</td>
+                <td>@item._Name</td>
+                <td>@item._Level</td>
+                <td>@item._CreateTime</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item._Key">編輯</a> |
+                    <a asp-action="Delete" asp-route-id="@item._Key">刪除</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">新增 CBox</a>

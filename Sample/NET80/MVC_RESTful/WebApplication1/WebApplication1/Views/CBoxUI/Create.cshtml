@@ -1,0 +1,21 @@
+﻿@model WebApplication1.Models.CBox
+
+<h2>新增 CBox</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="_Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Level</label>
+        <input asp-for="_Level" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>CreateTime</label>
+        <input asp-for="_CreateTime" class="form-control" type="datetime-local" />
+    </div>
+    <button type="submit" class="btn btn-success">提交</button>
+</form>
+
+<a asp-action="Index">返回列表</a>

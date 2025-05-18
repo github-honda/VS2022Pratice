@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleConsole", "ConsoleBas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWorkerService", "SampleWorkerService\SampleWorkerService.csproj", "{381B0254-FAF3-49AD-A9C5-463C52AA2FD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "MVC_RESTful\WebApplication1\WebApplication1\WebApplication1.csproj", "{0B1D19F4-8F9A-B1B0-24C4-3694E59873D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{381B0254-FAF3-49AD-A9C5-463C52AA2FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{381B0254-FAF3-49AD-A9C5-463C52AA2FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{381B0254-FAF3-49AD-A9C5-463C52AA2FD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B1D19F4-8F9A-B1B0-24C4-3694E59873D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B1D19F4-8F9A-B1B0-24C4-3694E59873D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B1D19F4-8F9A-B1B0-24C4-3694E59873D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B1D19F4-8F9A-B1B0-24C4-3694E59873D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
